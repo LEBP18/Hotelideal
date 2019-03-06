@@ -93,7 +93,6 @@ public class ActualizarReserva extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btActualizar = new javax.swing.JButton();
-        jbLimpiar = new javax.swing.JButton();
         cbTipo = new javax.swing.JComboBox<>();
         jtIdHuesped = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -129,8 +128,6 @@ public class ActualizarReserva extends javax.swing.JInternalFrame {
                 btActualizarActionPerformed(evt);
             }
         });
-
-        jbLimpiar.setText("Limpiar");
 
         cbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Estándar Simple", "Doble", "Triple", "Suite Lujo" }));
         cbTipo.setToolTipText("");
@@ -208,21 +205,6 @@ public class ActualizarReserva extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(btActualizar)
-                                    .addGap(111, 111, 111)
-                                    .addComponent(jbLimpiar))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(cbCantMax, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(dias)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jtDias, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addComponent(ingreso)
@@ -231,7 +213,20 @@ public class ActualizarReserva extends javax.swing.JInternalFrame {
                                 .addGap(27, 27, 27)
                                 .addComponent(egreso)
                                 .addGap(25, 25, 25)
-                                .addComponent(jtEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jtEgreso, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbCantMax, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btActualizar)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(dias)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jtDias, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtImporteTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -293,11 +288,9 @@ public class ActualizarReserva extends javax.swing.JInternalFrame {
                     .addComponent(jtDias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtImporteTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btActualizar)
-                    .addComponent(jbLimpiar))
-                .addContainerGap())
+                .addGap(40, 40, 40)
+                .addComponent(btActualizar)
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -449,13 +442,13 @@ public class ActualizarReserva extends javax.swing.JInternalFrame {
         
         
         reservaData.actualizarReserva(reserva);         
-        jtId.setText(reserva.getId_reserva()+"");
+        //jtId.setText(reserva.getId_reserva()+"");
         
         int id_habitacion = habitacion.getId_habitacion();
         habitacionData.cambiarEstado(false, id_habitacion);
         
         String id = (String) jtId.getText();
-        JOptionPane.showMessageDialog(this, "Su numero de reserva es: " + id); 
+        JOptionPane.showMessageDialog(this, "Reserva Actualizada"); 
     }//GEN-LAST:event_btActualizarActionPerformed
 
      
@@ -505,7 +498,6 @@ public class ActualizarReserva extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton jbLimpiar;
     private javax.swing.JTextField jtCantPersonas;
     private javax.swing.JTextField jtDias;
     private javax.swing.JTextField jtEgreso;

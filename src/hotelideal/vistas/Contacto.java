@@ -34,6 +34,11 @@ public class Contacto extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jLabel1.setText("34.715.587");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N

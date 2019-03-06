@@ -68,6 +68,31 @@ public class HotelIdeal {
             Logger.getLogger(HotelIdeal.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+
+
+                                              
+            //PARA INSCRIBIR PERSONA
+            PersonaData personadata = new PersonaData (conexion);
+            Persona persona1 = new Persona ("Majo", 38750019, 15474985);
+            personadata.inscribirPersona(persona1);
+            System.out.println("El id de la persona es: " + persona1.getNombrePersona());
+             /* 
+            CursoData cursodata=new CursoData(conexion);
+            Curso matematica=new Curso ("matematica","esta bueno",150,20,1);
+            cursodata.altaCurso(matematica);
+            System.out.println("El id del curso es: " + curso1.getId_curso());
+            
+            PARA CONSULTAR PERSONA
+            personadata.listaPersonas().forEach(Persona->{System.out.println("ID: " + Persona.getId_persona());});
+           
+            PARA BORRAR PERSONA
+            Persona persona= new Persona();
+            persona.setId_persona(5);
+            persondadata.borrarPersona;
+
+
+
+
     }
     
 } */

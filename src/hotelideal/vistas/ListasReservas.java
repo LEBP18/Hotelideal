@@ -6,6 +6,10 @@
 package hotelideal.vistas;
 
 import hotelideal.Conexion;
+import hotelideal.Habitacion;
+import hotelideal.HabitacionData;
+import hotelideal.Huesped;
+import hotelideal.HuespedData;
 import hotelideal.Reserva;
 import hotelideal.ReservaData;
 import java.util.ArrayList;
@@ -22,6 +26,10 @@ private DefaultTableModel modelo;
 private ArrayList<Reserva> obtenerReservas;
 private ReservaData reservaData;
 private Conexion conexion;
+private HabitacionData habitacionData;
+private ArrayList<Habitacion> listaHabitaciones;
+private HuespedData huespedData;
+private ArrayList<Huesped> listaHuespedes;
     /**
      * Creates new form ListasReservas
      */
@@ -35,6 +43,12 @@ private Conexion conexion;
         
         reservaData=new ReservaData (conexion);
         obtenerReservas = (ArrayList) reservaData.obtenerReservas();
+        
+         habitacionData= new HabitacionData (conexion);
+       listaHabitaciones= (ArrayList) habitacionData.obtenerHabitaciones();
+       
+       huespedData= new HuespedData (conexion);
+       listaHuespedes= (ArrayList) huespedData.obtenerHuespedes();
         
         armaCabeceraTabla();
         cargaDatos();
@@ -53,7 +67,7 @@ public void armaCabeceraTabla(){
         columnas.add("IMPORTE TOTAL");
         columnas.add("ESTADO");
         columnas.add("HUESPED");
-        columnas.add("HABITACION");
+        columnas.add("N°HABITACION");
         columnas.add("CANTIDAD PERSONAS");
         for(Object it:columnas){
         
@@ -63,12 +77,25 @@ public void armaCabeceraTabla(){
   }
 public void cargaDatos(){
             
-            ReservaData rd=new ReservaData(conexion);
-            obtenerReservas =(ArrayList) rd.obtenerReservas();
+            
+            obtenerReservas =(ArrayList) reservaData.obtenerReservas();
         
         for(Reserva r:obtenerReservas){
+     /*       
+     boolean l = true;
+     String libre = String.valueOf(l);
+     libre = estado; 
+           
+        if (r.getEstado() = true){
+            estado="Libre";
+        }else {estado="Ocupada";
+    }
+     */  
+        
     
-    modelo.addRow(new Object[]{r.getId_reserva(),r.getIngreso(),r.getEgreso(),r.getImporte_total(),r.getEstado(),r.getHuesped(),r.getHabitacion(),r.getCantidad_personas()});
+        
+    modelo.addRow(new Object[]{r.getId_reserva(),r.getIngreso(),r.getEgreso(),r.getImporte_total(),
+        r.getEstado(),r.getHuesped().getNombre(),r.getHabitacion().getNumero(),r.getCantidad_personas()});
             }           
         }
 
@@ -83,6 +110,14 @@ public void cargaDatos(){
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tbReservas = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+        setTitle("Hotel ideal");
 
         tbReservas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,21 +132,38 @@ public void cargaDatos(){
         ));
         jScrollPane1.setViewportView(tbReservas);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel1.setText("Total de reservas realizadas en el Hotel");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/optucorp_glosario_personal_hoteles02.jpg"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addGap(0, 1, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                .addGap(63, 63, 63))
         );
 
         pack();
@@ -119,6 +171,8 @@ public void cargaDatos(){
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbReservas;
     // End of variables declaration//GEN-END:variables

@@ -38,6 +38,10 @@ public class TipoDeHabitacion {
         id_tipo_de_habitacion=-1;
     }
 
+    public TipoDeHabitacion(String tipo) {
+        this.tipo = tipo;
+    }
+
     public int getId_tipo_de_habitacion() {
         return id_tipo_de_habitacion;
     }

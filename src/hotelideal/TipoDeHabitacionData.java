@@ -224,4 +224,19 @@ public class TipoDeHabitacionData {
         
         return tipoDeHabitacion;
     }
+     public int buscaMaxCapacidadDeHabitacion() {
+        int max = 0;
+        try {
+            String sql = "SELECT MAX(max_personas) as capacidad FROM tipo_de_habitacion;";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+              max = resultSet.getInt("capacidad");
+            }
+            statement.close();
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener los tipos de habitacion: " + ex.getMessage());
+        }
+        return max;
+    }
 }

@@ -36,21 +36,28 @@ public class panelprincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         escritorio = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         reserva = new javax.swing.JMenu();
-        nuevareserva = new javax.swing.JMenuItem();
+        contacto = new javax.swing.JMenuItem();
         habitacion = new javax.swing.JMenu();
-        listadohabitaciones = new javax.swing.JMenuItem();
-        nuevahabitacion = new javax.swing.JMenuItem();
-        modificarhabitacion = new javax.swing.JMenuItem();
-        quitarhabitacion = new javax.swing.JMenuItem();
-        huesped = new javax.swing.JMenu();
-        VistaHuespedes = new javax.swing.JMenuItem();
-        contacto = new javax.swing.JMenu();
+        GestiónHabitaciones = new javax.swing.JMenuItem();
+        GestionTipo = new javax.swing.JMenuItem();
+        GestionHuesped = new javax.swing.JMenu();
+        GestionHuespedes = new javax.swing.JMenuItem();
+        GestionReserva = new javax.swing.JMenuItem();
+        CancelarReserv = new javax.swing.JMenuItem();
+        ActuaReserv = new javax.swing.JMenuItem();
+        Consultas = new javax.swing.JMenu();
+        ListaHab = new javax.swing.JMenuItem();
+        ListaHuespe = new javax.swing.JMenuItem();
+        ListaReserv = new javax.swing.JMenuItem();
 
         jMenuItem5.setText("jMenuItem5");
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1026, 555));
@@ -59,7 +66,6 @@ public class panelprincipal extends javax.swing.JFrame {
         escritorio.setPreferredSize(new java.awt.Dimension(1026, 534));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/ImagenFondo.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
 
         escritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -68,89 +74,122 @@ public class panelprincipal extends javax.swing.JFrame {
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(escritorioLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
+            .addGroup(escritorioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(204, 153, 0));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Gran Hotel", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Segoe Print", 3, 18)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("MV Boli", 0, 24))); // NOI18N
 
         reserva.setBackground(new java.awt.Color(204, 153, 0));
-        reserva.setText("Reserva");
+        reserva.setText("Contacto");
 
-        nuevareserva.setText("Nueva");
-        nuevareserva.addActionListener(new java.awt.event.ActionListener() {
+        contacto.setText("¿Quienes somos?");
+        contacto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nuevareservaActionPerformed(evt);
+                contactoActionPerformed(evt);
             }
         });
-        reserva.add(nuevareserva);
+        reserva.add(contacto);
 
         jMenuBar1.add(reserva);
 
-        habitacion.setText("Habitación");
+        habitacion.setText("Gestión hotel");
 
-        listadohabitaciones.setText("Listado");
-        listadohabitaciones.addActionListener(new java.awt.event.ActionListener() {
+        GestiónHabitaciones.setText("Gestión habitaciones");
+        GestiónHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listadohabitacionesActionPerformed(evt);
+                GestiónHabitacionesActionPerformed(evt);
             }
         });
-        habitacion.add(listadohabitaciones);
+        habitacion.add(GestiónHabitaciones);
 
-        nuevahabitacion.setText("Nueva");
-        nuevahabitacion.addActionListener(new java.awt.event.ActionListener() {
+        GestionTipo.setText("Gestión tipo de habitaciones");
+        GestionTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nuevahabitacionActionPerformed(evt);
+                GestionTipoActionPerformed(evt);
             }
         });
-        habitacion.add(nuevahabitacion);
-
-        modificarhabitacion.setText("Modificar");
-        modificarhabitacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificarhabitacionActionPerformed(evt);
-            }
-        });
-        habitacion.add(modificarhabitacion);
-
-        quitarhabitacion.setText("Borrar");
-        quitarhabitacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quitarhabitacionActionPerformed(evt);
-            }
-        });
-        habitacion.add(quitarhabitacion);
+        habitacion.add(GestionTipo);
 
         jMenuBar1.add(habitacion);
 
-        huesped.setText("Huesped");
-        huesped.addActionListener(new java.awt.event.ActionListener() {
+        GestionHuesped.setText("Huespedes");
+        GestionHuesped.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                huespedActionPerformed(evt);
+                GestionHuespedActionPerformed(evt);
             }
         });
 
-        VistaHuespedes.setText("Actualización de Datos");
-        VistaHuespedes.addActionListener(new java.awt.event.ActionListener() {
+        GestionHuespedes.setText("Gestión datos huesped");
+        GestionHuespedes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VistaHuespedesActionPerformed(evt);
+                GestionHuespedesActionPerformed(evt);
             }
         });
-        huesped.add(VistaHuespedes);
+        GestionHuesped.add(GestionHuespedes);
 
-        jMenuBar1.add(huesped);
+        GestionReserva.setText("Realizar reserva");
+        GestionReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GestionReservaActionPerformed(evt);
+            }
+        });
+        GestionHuesped.add(GestionReserva);
 
-        contacto.setText("Contacto");
-        jMenuBar1.add(contacto);
+        CancelarReserv.setText("Cancelar Reserva");
+        CancelarReserv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarReservActionPerformed(evt);
+            }
+        });
+        GestionHuesped.add(CancelarReserv);
+
+        ActuaReserv.setText("Actualizar reserva");
+        ActuaReserv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActuaReservActionPerformed(evt);
+            }
+        });
+        GestionHuesped.add(ActuaReserv);
+
+        jMenuBar1.add(GestionHuesped);
+
+        Consultas.setText("Consultas");
+
+        ListaHab.setText("Lista Habitaciones");
+        ListaHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaHabActionPerformed(evt);
+            }
+        });
+        Consultas.add(ListaHab);
+
+        ListaHuespe.setText("Lista Huespedes");
+        ListaHuespe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaHuespeActionPerformed(evt);
+            }
+        });
+        Consultas.add(ListaHuespe);
+
+        ListaReserv.setText("Lista Reservas");
+        ListaReserv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListaReservActionPerformed(evt);
+            }
+        });
+        Consultas.add(ListaReserv);
+
+        jMenuBar1.add(Consultas);
 
         setJMenuBar(jMenuBar1);
 
@@ -158,29 +197,31 @@ public class panelprincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 447, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void listadohabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listadohabitacionesActionPerformed
+    private void GestiónHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestiónHabitacionesActionPerformed
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
-        VistaTipoDeHabitacion vh=new VistaTipoDeHabitacion();
+        Login vh=new Login();
         vh.setVisible(true);
-        //vh.setLocation(200, 50);
-        escritorio.add(vh);
-        escritorio.moveToFront(vh);
+        
+        VistaHabitacion l = new VistaHabitacion ();
+         l.setVisible(true);
+        escritorio.add(l);
+        escritorio.moveToFront(l);
         //escritorio.add(vh);
-    }//GEN-LAST:event_listadohabitacionesActionPerformed
+    }//GEN-LAST:event_GestiónHabitacionesActionPerformed
 
-    private void VistaHuespedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VistaHuespedesActionPerformed
+    private void GestionHuespedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionHuespedesActionPerformed
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
@@ -190,57 +231,38 @@ public class panelprincipal extends javax.swing.JFrame {
         escritorio.add(vh);
         escritorio.moveToFront(vh);
         //escritorio.add(vh);
-    }//GEN-LAST:event_VistaHuespedesActionPerformed
+    }//GEN-LAST:event_GestionHuespedesActionPerformed
 
-    private void nuevareservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevareservaActionPerformed
+    private void contactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactoActionPerformed
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
-        reserva vh=new reserva();
+        Contacto vh=new Contacto();
         vh.setVisible(true);
         //vh.setLocation(200, 50);
         escritorio.add(vh);
         escritorio.moveToFront(vh);
         //escritorio.add(vh);
-    }//GEN-LAST:event_nuevareservaActionPerformed
+    }//GEN-LAST:event_contactoActionPerformed
 
-    private void nuevahabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevahabitacionActionPerformed
+    private void GestionTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionTipoActionPerformed
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
-        VistaHabitacion vh=new VistaHabitacion();
+        
+        Login vh=new Login();
         vh.setVisible(true);
+               
+        VistaTipoDeHabitacion v=new VistaTipoDeHabitacion();
+        v.setVisible(true);
         //vh.setLocation(200, 50);
-        escritorio.add(vh);
-        escritorio.moveToFront(vh);
+        
+        escritorio.add(v);
+        escritorio.moveToFront(v);
         //escritorio.add(vh);
-    }//GEN-LAST:event_nuevahabitacionActionPerformed
+    }//GEN-LAST:event_GestionTipoActionPerformed
 
-    private void modificarhabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarhabitacionActionPerformed
-        // TODO add your handling code here:
-        escritorio.removeAll();
-        escritorio.repaint();
-        modificarhabitacion vh=new modificarhabitacion();
-        vh.setVisible(true);
-        //vh.setLocation(200, 50);
-        escritorio.add(vh);
-        escritorio.moveToFront(vh);
-        //escritorio.add(vh);
-    }//GEN-LAST:event_modificarhabitacionActionPerformed
-
-    private void quitarhabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitarhabitacionActionPerformed
-        // TODO add your handling code here:
-        escritorio.removeAll();
-        escritorio.repaint();
-        ListaHabitacionPorEstado vh=new ListaHabitacionPorEstado();
-        vh.setVisible(true);
-        //vh.setLocation(200, 50);
-        escritorio.add(vh);
-        escritorio.moveToFront(vh);
-        //escritorio.add(vh);
-    }//GEN-LAST:event_quitarhabitacionActionPerformed
-
-    private void huespedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_huespedActionPerformed
+    private void GestionHuespedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionHuespedActionPerformed
      /*   // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
@@ -250,7 +272,73 @@ public class panelprincipal extends javax.swing.JFrame {
         escritorio.add(vh);
         escritorio.moveToFront(vh);
         */
-    }//GEN-LAST:event_huespedActionPerformed
+    }//GEN-LAST:event_GestionHuespedActionPerformed
+
+    private void ListaHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaHabActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ListadoHabitaciones vh=new ListadoHabitaciones();
+        vh.setVisible(true);
+        //vh.setLocation(200, 50);
+        escritorio.add(vh);
+        escritorio.moveToFront(vh);
+    }//GEN-LAST:event_ListaHabActionPerformed
+
+    private void ListaHuespeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaHuespeActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ListasHuespedes vh=new ListasHuespedes();
+        vh.setVisible(true);
+        //vh.setLocation(200, 50);
+        escritorio.add(vh);
+        escritorio.moveToFront(vh);
+    }//GEN-LAST:event_ListaHuespeActionPerformed
+
+    private void ListaReservActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListaReservActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ListasReservas vh=new ListasReservas();
+        vh.setVisible(true);
+        //vh.setLocation(200, 50);
+        escritorio.add(vh);
+        escritorio.moveToFront(vh);
+    }//GEN-LAST:event_ListaReservActionPerformed
+
+    private void GestionReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionReservaActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        VistaReserva vh=new VistaReserva();
+        vh.setVisible(true);
+        //vh.setLocation(200, 50);
+        escritorio.add(vh);
+        escritorio.moveToFront(vh);
+    }//GEN-LAST:event_GestionReservaActionPerformed
+
+    private void CancelarReservActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarReservActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ListasCancelarReservas vh=new ListasCancelarReservas();
+        vh.setVisible(true);
+        //vh.setLocation(200, 50);
+        escritorio.add(vh);
+        escritorio.moveToFront(vh);
+    }//GEN-LAST:event_CancelarReservActionPerformed
+
+    private void ActuaReservActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActuaReservActionPerformed
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ActualizarReserva vh=new ActualizarReserva();
+        vh.setVisible(true);
+        //vh.setLocation(200, 50);
+        escritorio.add(vh);
+        escritorio.moveToFront(vh);
+    }//GEN-LAST:event_ActuaReservActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,19 +376,24 @@ public class panelprincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem VistaHuespedes;
-    private javax.swing.JMenu contacto;
+    private javax.swing.JMenuItem ActuaReserv;
+    private javax.swing.JMenuItem CancelarReserv;
+    private javax.swing.JMenu Consultas;
+    private javax.swing.JMenu GestionHuesped;
+    private javax.swing.JMenuItem GestionHuespedes;
+    private javax.swing.JMenuItem GestionReserva;
+    private javax.swing.JMenuItem GestionTipo;
+    private javax.swing.JMenuItem GestiónHabitaciones;
+    private javax.swing.JMenuItem ListaHab;
+    private javax.swing.JMenuItem ListaHuespe;
+    private javax.swing.JMenuItem ListaReserv;
+    private javax.swing.JMenuItem contacto;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu habitacion;
-    private javax.swing.JMenu huesped;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem listadohabitaciones;
-    private javax.swing.JMenuItem modificarhabitacion;
-    private javax.swing.JMenuItem nuevahabitacion;
-    private javax.swing.JMenuItem nuevareserva;
-    private javax.swing.JMenuItem quitarhabitacion;
     private javax.swing.JMenu reserva;
     // End of variables declaration//GEN-END:variables
 }

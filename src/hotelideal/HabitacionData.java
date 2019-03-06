@@ -220,4 +220,21 @@ public class HabitacionData {
                 
         return th;
     }
+    public void cambiarEstado(boolean estado, int id_habitacion){
+        try {
+            
+            String sql = "UPDATE habitacion SET estado = ? WHERE id_habitacion = ?;";
+
+            PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            statement.setBoolean(1, estado);
+            statement.setInt(2, id_habitacion);
+            statement.executeUpdate();
+    
+            statement.close();
+    
+        } catch (SQLException ex) {
+            System.out.println("Error al actualizar el ESTADO de habitación: " + ex.getMessage());
+        }
+    
+    }
 }

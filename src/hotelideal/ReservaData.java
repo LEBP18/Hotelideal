@@ -87,7 +87,7 @@ public class ReservaData {
                 
                 Huesped h = buscarHuesped(resultSet.getInt("id_huesped"));
                 reserva.setHuesped(h);
-                
+                               
                 Habitacion hab = buscarHabitacion(resultSet.getInt("id_habitacion"));
                 reserva.setHabitacion(hab);
                 
@@ -103,7 +103,41 @@ public class ReservaData {
         return reservas;
     }
     
-    
+    public List<Reserva> obtenerReservas(int id_huesped){
+       List<Reserva> reservas = new ArrayList<Reserva>();
+            
+
+        try {
+            String sql = "SELECT * FROM reserva WHERE id_huesped = ?;";
+            
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            Reserva reserva;
+            while(resultSet.next()){
+                reserva = new Reserva();
+                reserva.setId_reserva(resultSet.getInt("id_reserva"));
+                reserva.setIngreso(resultSet.getDate("ingreso").toLocalDate());
+                reserva.setEgreso(resultSet.getDate("egreso").toLocalDate());
+                reserva.setImporte_total(resultSet.getDouble("importe_total"));
+                reserva.setEstado(resultSet.getBoolean("estado"));
+                
+                Huesped h = buscarHuesped(resultSet.getInt("id_huesped"));
+                reserva.setHuesped(h);
+                               
+                Habitacion hab = buscarHabitacion(resultSet.getInt("id_habitacion"));
+                reserva.setHabitacion(hab);
+                
+                reserva.setCantidad_personas(resultSet.getInt("cantidad_personas"));
+                                  
+                reservas.add(reserva);
+            }      
+            statement.close();
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener las reservas: " + ex.getMessage());
+        }
+                
+        return reservas;
+    }
     
     
     public void cancelarReserva(int id_reserva){
@@ -289,14 +323,14 @@ public class ReservaData {
                 
         return hab;
     }
-     public void actualizarEstado(boolean estado, int num){
+     public void actualizarEstado(boolean estado, int id_reserva){
         try {
             
-            String sql = "UPDATE habitacion SET estado = ? WHERE num = ?;";
+            String sql = "UPDATE reserva SET estado = ? WHERE id_reserva = ?;";
 
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setBoolean(1, estado);
-            statement.setInt(2, num);
+            statement.setInt(2, id_reserva);
             statement.executeUpdate();
     
             statement.close();

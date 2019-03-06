@@ -47,7 +47,7 @@ public class Reserva {
         id_reserva=-1;
     }
 
-    public Reserva(Date ingreso, Date egreso, double importe_total, int id_huesped, int id_habitacion) {
+    public Reserva(LocalDate ingreso, LocalDate egreso, double importe_total, int id_huesped, int id_habitacion) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
